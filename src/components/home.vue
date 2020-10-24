@@ -1,6 +1,13 @@
 <template>
   <div id="app">
-    
+    <div id="buttons">
+        <a href="resume.pdf" target="_blank">
+            <button>RESUME</button>
+        </a>
+         <a href="https://github.com/jonesmax" target="_blank">
+            <button>GITHUB</button>
+        </a>
+    </div>
     <div id="content">
         <div id="topBar">
             <h1>Maxwell Jones</h1>
@@ -9,7 +16,17 @@
                 </li>
         </div>
         <div id="modalMe"  v-if="itemDirectory.me.active == true">
-            <h1>About Me</h1>
+            <div id="software">
+                <h1>Software Developer</h1>
+                <h2>London, Ontario</h2>
+                <h2>(905) 484-0574</h2>
+                <h2>maxjones2001@hotmail.com</h2>
+
+                <h3>Fanshawe College</h3>
+                <h2>Computer Programmer Analyst</h2>
+                <h2>Co-op Program</h2>
+                <h2>Dean's Honour Roll</h2>
+            </div>
         </div>
         <div id="modalSkills"  v-if="itemDirectory.skills.active == true">
             <h1>My Skills</h1>
@@ -18,10 +35,6 @@
             <h1>Projects</h1>
         </div>
     </div>
-    
-    
-
-
   </div>
 </template>
 
@@ -49,7 +62,7 @@ export default {
     methods:{
         getBackgroundColor(item){
             if(item.active == true){
-                return "background-color: rgb(220, 220, 220)";
+                return "background-color: rgb(230, 230, 230)";
             }
         },
         changeActive(full,item){
@@ -57,7 +70,6 @@ export default {
                 full[key]["active"] = false;
             }
             item.active = true;
-
             return full,item;
         }
     }
@@ -65,39 +77,65 @@ export default {
 </script>
 
 <style>
-
 #app {
-    margin-top: 150px;
+    font-family: 'Trispace', sans-serif;
     user-select: none;
+}
+button{
+    margin-top: 0px!important;
+    background-color: #4fafcc; /* Green */
+    border: none;
+    color: rgb(37, 35, 63);
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 20px;
+    border-radius: 4px;
+    font-family: 'Trispace', sans-serif;
+}
+button:hover{
+    background-color: rgba(51, 183, 235, 0.8);
+    cursor: pointer;
+}
+#buttons{
+    text-align: right;
+    margin-bottom: 110px;
+    margin-right: 0.7%;
+    margin-top: 0.7%;
+    
 }
 #content{
     background-color: rgb(255, 255, 255);
-    height: 600px;
+    margin-top: 125px;
     width: 55%;
     margin: auto;
     border-radius: 10px;
-    box-shadow: 5px 8px #5f5f5f;
+    box-shadow: 7px 8px #4fafcc;
 }
 #topBar{
     background-color: rgb(255, 255, 255);
     width: 100%;
-    height: 70px;
+    height: 77px;
     border-radius: 10px 10px 0px 0px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Trispace', sans-serif;
     float: left;
+    border-bottom: 2px solid #4fafcc;
+    
 }
-h1{
+#topBar h1{
     margin: 0;
     padding-left: 15px;
-    padding-top: 1.5%;
+    padding-top: 1.7%;
     padding-bottom: 1%;
-    padding-right: 2%;
+    padding-right: 2.5%;
     float: left;
 }
 #topBar li{
     float: left;
     list-style-type:none;
-    margin-top: 0.85%;
+    margin-top: 1.3%;
     margin-right: 3%;
     font-size: 22px;
     padding: 1.3%;
@@ -109,17 +147,37 @@ h1{
 }
 #modalMe,#modalSkills,#modalPro{
     background-color: rgb(226, 226, 226);
-    height: 600px;
+    height: 550px;
     width: 100%;
     border-radius: 10px;
 }
 #modalMe h1, #modalSkills h1,#modalPro h1{
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    
+    font-size: 25px;
+    font-family: 'Trispace', sans-serif;
+    padding-top: 100px!important;
 }
-
-
-
+#modalMe h1,h2{
+   margin-left: 25px;
+}
+#software{
+    width: 50%;
+    border-radius: 10px;
+    background-color: rgb(168, 84, 84);
+    height: 550px;
+}
+#software h1,h3{
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    width: 55%;
+}
+#software h2{
+    font-size: 20px;
+}
+#software h3{
+    font-size: 25px;
+    font-family: 'Trispace', sans-serif;
+    margin-left: 25px;
+    margin-top: 70px;
+}
 
 </style>

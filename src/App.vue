@@ -26,8 +26,5 @@ html {
   background-size: 100%;
   background-position-y: -60px;
 }
-#app {
-  
 
-}
 </style>
