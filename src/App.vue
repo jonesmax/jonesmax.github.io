@@ -21,10 +21,14 @@ export default {
 
 <style>
 html {
+  
   margin: 0;
   background-image: url("../public/images/background.png");
   background-size: 100%;
   background-position-y: -60px;
+}
+html {
+  scroll-behavior: smooth;
 }
 
 </style>

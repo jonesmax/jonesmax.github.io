@@ -12,7 +12,7 @@
     <div id="content">
         <div id="topBar">
             <h1>Maxwell Jones</h1>
-            <img src="../images/moving.gif">
+            
                 <li  v-for="item of itemDirectory" v-bind:key="item['.key']" :style="getBackgroundColor(item) " v-on:click="changeActive(itemDirectory,item) ">
                     {{item.name}}
                     
@@ -33,9 +33,9 @@
             </div>
             <div id="aboutme">
                 <h1>Hello ... </h1>
-                <p>I am an aspiring young designer, focusing on user interfaces whilst delievering full stack web applications.</p>
-                <p>You can find me any given day coding random tools to help make our lives eaiser...</p>
-                <p>Past experience working in Adobe creating products like logos, posters, business cards. I now use these skills towards the design of my work.</p>
+                <p>I am an aspiring young designer, focusing on user interfaces while delivering full stack web applications.</p>
+                <p>You can find me any given day coding random tools to help make school learning easier...</p>
+                <p>Past experience working in Adobe creating products like logos, posters and business cards. I now use these skills towards the design of my work.</p>
                 <p>HTML framework orientated, currently discovering VueJS.</p>
                 
 
@@ -47,16 +47,34 @@
         </div>
         <div id="modalSkills"  v-if="itemDirectory.skills.active == true">
             <div id="topSkills">
-                <li  v-for="item of skillList" v-bind:key="item['.key']">
+
+                 <li id="topLevelLi"  v-for="item of topLevel" v-bind:key="item['.key']">
                         <button>{{item.name}}</button>
                 </li>
+                <li id="twoLevelLi"  v-for="item of secondLevel" v-bind:key="item['.key']">
+                        <button>{{item.name}}</button>
+                </li>
+                <li id="threeLevelLi"  v-for="item of threeLevel" v-bind:key="item['.key']">
+                        <button>{{item.name}}</button>
+                </li>
+                <li id="fourLevelLi"  v-for="item of fourLevel" v-bind:key="item['.key']">
+                        <button>{{item.name}}</button>
+                </li>
+                <li id="fiveLevelLi"  v-for="item of  fiveLevel" v-bind:key="item['.key']">
+                        <button>{{item.name}}</button>
+                </li>
+
+            
                 
+                
+               
+                
+                <!--<p>I am always working towards new knowledge, green representing my greatest skills, moving towards new ones to develop.</p>
+               
+                <p>“When you do more than you’re paid for, eventually you’ll be paid for more than you do.” -Zig Ziglar, author and motivational speaker</p>
+                -->
             </div>
-             <div id="botSkills">
-                <li  v-for="item of frameList" v-bind:key="item['.key']">
-                        <button>{{item.name}}</button>
-                </li>
-            </div>
+             
         </div>
         <div id="modalPro"  v-if="itemDirectory.projects.active == true">
             <div id="mainPro">
@@ -102,69 +120,81 @@ export default {
                     active: false
                 },
             },
-            skillList:[
+            topLevel:[
                 {
-                    name: "C"
+                    name:"VueJS"
                 },
                 {
-                    name: "C++"
+                    name:"JavaScript"
                 },
                 {
-                    name: "Java"
+                    name:"Photoshop"
                 },
                 {
-                    name: "HTML"
+                    name:"UI/UX"
                 },
                 {
-                    name: "CSS"
-                },
-                {
-                    name: "JavaScript"
-                },
-                {
-                    name: "Python"
-                },
-                {
-                    name: "C#"
-                },
-                {
-                    name: "mySQL"
-                },
-                {
-                    name: "jQuery"
+                    name:"HTML/CSS"
                 },
             ],
-            frameList:[
-
+            secondLevel:[
                 {
-                    name: "VueJS"
+                    name:"Python"
                 },
                 {
-                    name: "Firebase"
+                    name:"C++"
                 },
                 {
-                    name: "Unity"
+                    name:"Java"
                 },
                 {
-                    name: "React"
+                    name:"C#"
+                },
+                
+                
+            ],
+             threeLevel:[
+                {
+                    name:"C"
                 },
                 {
-                    name: "REST"
+                    name:"Firebase"
                 },
                 {
-                    name: "Photoshop"
+                    name:"Unity"
                 },
                 {
-                    name: "Git"
+                    name:"REST"
                 },
                 {
-                    name: "Ubuntu"
+                    name:"Bootstrap"
+                },
+                
+                
+            ],
+            fourLevel:[
+                {
+                    name:"mySQL"
                 },
                 {
-                    name: "Angular"
+                    name:"Git"
                 },
                 {
-                    name: "Bootstrap"
+                    name:"Ubuntu"
+                },
+            ],
+            fiveLevel:[
+                {
+                    name:"CSS Layouts"
+                },
+                {
+                    name:"AWS"
+                },
+                {
+                    name:"jQuery"
+                },
+                {
+                    name:"PHP"
                 },
             ],
             projectList:[
@@ -297,10 +327,12 @@ export default {
     font-family: 'Trispace', sans-serif;
     user-select: none;
     transition: all 0.3s ease;
+    
 }
 
 #topBar img{
     width: 6%;
+    height: 8vh;
     float: right;
     margin-top: 0px;
     margin-right: 6px;
@@ -386,15 +418,16 @@ button:hover{
     width: 55%;
     margin: auto;
     border-radius: 10px;
+    min-width: 500px;
     box-shadow: 7px 8px #4fafcc;
 }
 #topBar{
     background-color: rgb(255, 255, 255);
-    width: 100;
     height: 8.2vh;
     border-radius: 10px 10px 0px 0px;
     font-family: 'Trispace', sans-serif;
     float: left;
+    width: 100%;
     border-bottom: 2px solid #4fafcc;
     
 }
@@ -410,9 +443,9 @@ button:hover{
 #topBar li{
     float: left;
     list-style-type:none;
-    margin-top: 1.3%;
+    margin-top: 1.4%;
     margin-right: 3%;
-    font-size: 2.3vh;
+    font-size: 1.2vw;
     padding: 1.3%;
     border-radius: 15px;
 }
@@ -422,9 +455,15 @@ button:hover{
 }
 #modalMe,#modalSkills,#modalPro{
     background-color: rgb(226, 226, 226);
-    height: 60vh;
+    height: 52vh;
     width: 100%;
     border-radius: 10px;
+    
+    
+    
+}
+#modalMe, #modalPro{
+    overflow:hidden;
 }
 #modalMe h1, #modalSkills h1,#modalPro h1{
     font-size: 25px;
@@ -470,23 +509,90 @@ button:hover{
 #modalSkills li{
     list-style-type:none;
 }
-#topSkills button{
+#modalSkills{
+    height: 60.5vh;
+
+}
+#topLevelLi button{
     border-radius: 0px;
     border: none;
-    border-right: 1px solid rgb(255, 255, 255);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.19);
     font-size: 100%;
     float: left;
-    width: 10%;
-    height: 4vh;
-    background-color: #4fafcc; /* Green */
+    width: 20%;
+    height: 13vh;
+    background-color: rgb(125, 255, 108); /* Green */
     animation-name: Rise;
-    animation-duration: 1.3s;
+    animation-duration: 5s;
+    position: relative;
+    
+}
+#twoLevelLi button{
+    border-radius: 0px;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7), 0 6px 20px 0 rgba(0,0,0,0.19);
+    font-size: 100%;
+    float: left;
+    width: 25%;
+    height: 12vh;
+    background-color: rgb(255, 252, 59); /* Green */
+    animation-name: Rise;
+    animation-duration: 4s;
     position: relative;
 }
+#threeLevelLi button{
+    border-radius: 0px;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3), 0 6px 20px 0 rgba(0,0,0,0.19);
+    font-size: 100%;
+    float: left;
+    width: 20%;
+    height: 10vh;
+    background-color: rgb(190, 145, 0); /* Green */
+    animation-name: Rise;
+    animation-duration: 3s;
+    position: relative;
+}
+#fourLevelLi button{
+    border-radius: 0px;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3), 0 6px 20px 0 rgba(0,0,0,0.19);
+    font-size: 100%;
+    float: left;
+    width: 33.333%;
+    height:9.2vh;
+    background-color: rgb(253, 122, 0); /* Green */
+    animation-name: Rise;
+    animation-duration: 2s;
+    position: relative;
+}
+#fiveLevelLi button{
+    border-radius: 0px;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3), 0 6px 20px 0 rgba(0,0,0,0.19);
+    font-size: 100%;
+    float: left;
+    width: 25%;
+    height:8vh;
+    
+    background-color: rgb(0, 102, 255); /* Green */
+    animation-name: Rise;
+    animation-duration: 1s;
+    position: relative;
+    
+}
 #topSkills{
-    background-color: rgb(255, 255, 255);
-    height: 56vh;
+    
+    height: 60vh;
     border-radius: 10px 10px 0px 0px ;
+    
+}
+#topSkills p{
+    width: 90%;
+    margin: 50px;
+    
+    padding-top: 41%!important;
+    
     
 }
 #botSkills{
@@ -494,23 +600,11 @@ button:hover{
     border-radius: 0px 0px 10px 10px;
     
 }
-#botSkills button{
-    border-radius: 0px;
-    border: none;
-    border-right: 1px solid rgb(255, 255, 255);
-    font-size: 100%;
-    float: left;
-    width: 10%;
-    height: 4vh;
-    background-color: #4fafcc; /* Green */
-    animation-name: Rise2;
-    animation-duration: 1.3s;
-    position: relative;
-}
+
 #modalPro{
     overflow-y: auto;
-    height: 51.5vh;
-    padding-bottom: 30px;
+    height: 52vh;
+    
 }
 #modalPro h1{
     margin: 0;
@@ -530,9 +624,8 @@ button:hover{
     min-width: 600px;
     margin-bottom: 30px;
 }
-#modalPro p{
-    
-   
+button{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 #proDiv{
     background-color: rgb(199, 199, 199);
@@ -565,6 +658,104 @@ button:hover{
     margin: 0;
     font-size: 120%;
     margin-top: 5px;
+}
+#topLevelLi{
+    
+}
+@media only screen and (max-width: 1850px) {
+    #modalPro img{
+        width: 95%;
+        height: 95%;
+        float: left;
+        
+    }
+    #proDiv{
+        width: 95%;
+        margin: 0;
+        padding: 0;
+        margin-left: 20px;
+        float: left;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #topBar img{
+            display: none;
+        }
+}
+@media only screen and (max-width: 1500px) {
+   #topBar img{
+            display: none;
+        }
+    #topBar h1{
+        font-size: 2.7vw;
+        padding-left:2%;
+    }
+    #topBar li{
+        font-size: 1.9vw;
+        
+    }
+    
+    #topBar{
+        width: 100%;
+        height:6vh;
+    }
+
+   #modalMe h1, #modalMe h3{
+       font-size: 2.1vh;
+   }
+   #modalMe h2, #modalMe h2{
+       font-size: 2vh;
+   }
+   #modalMe p{
+        font-size: 1.3vh;
+    }
+
+}
+@media only screen and (max-width: 890px) {
+   #topBar img{
+            display: none;
+        }
+    #topBar h1{
+        font-size: 2.7vh;
+        padding-left:2%;
+        padding-top: 1.5vh;
+    }
+    #topBar li{
+        font-size: 1.3vh;
+        margin-top: 3%;
+        
+    }
+    #topBar{
+        width: 100%;
+        height:6vh;
+    }
+    #modalMe p{
+        font-size: 1.35vh;
+    }
+     #modalMe h2{
+        font-size: 1.25vh;
+    }
+}
+@media only screen and (min-width: 2000px) {
+   #modalMe h1, #modalMe h3{
+       font-size: 2.5vh;
+   }
+    #modalMe h2{
+       font-size: 2vh;
+   }
+   #modalMe p{
+       font-size: 1.5vh;
+   }
+   #modalPro img{
+       width: 50%;
+       height: 31.7vh;
+   }
+   #proDiv{
+       height: 31vh;
+       padding-left: 20px;
+       width: 40%;
+   }
 }
 
 </style>
