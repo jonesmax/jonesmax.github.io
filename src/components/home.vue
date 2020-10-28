@@ -63,16 +63,7 @@
                 <li id="fiveLevelLi"  v-for="item of  fiveLevel" v-bind:key="item['.key']">
                         <button>{{item.name}}</button>
                 </li>
-
-            
-                
-                
-               
-                
-                <!--<p>I am always working towards new knowledge, green representing my greatest skills, moving towards new ones to develop.</p>
-               
-                <p>“When you do more than you’re paid for, eventually you’ll be paid for more than you do.” -Zig Ziglar, author and motivational speaker</p>
-                -->
+         
             </div>
              
         </div>
@@ -80,15 +71,15 @@
             <div id="mainPro">
                 <li  v-for="item of projectList" v-bind:key="item['.key']">
                         <h1 >{{item.name}}</h1>
-                        <a :href="getLink(item)" target="_blank">
-                            <img v-bind:src="'../'+item.url" :style="'float: '+item.float">
+                        <a :href="getLink(item,'link')" target="_blank">
+                            <img v-bind:src="'../'+item.url" :style="'float: '+item.float" v-on:click="checkActive(item)">
                         </a>
                         <div id="proDiv" :style="'float: '+item.float">
                             <h2>{{item.intro}}</h2>
                             <p>{{item.desc}}</p>
                             <p>{{item.other}}</p>
-                            <a :href="getLink(item)" target="_blank">
-                                    <button>GITHUB</button>
+                            <a :href="getLink(item,'git')" target="_blank">
+                                    <button v-on:click="checkActive(item)">GITHUB</button>
                             </a>
                         </div>
                 </li>
@@ -123,6 +114,7 @@ export default {
             topLevel:[
                 {
                     name:"VueJS"
+                    
                 },
                 {
                     name:"JavaScript"
@@ -203,6 +195,7 @@ export default {
                     url: "images/homepage.png",
                     float: "left",
                     link: "http://maxwelljonesdesign.com/School_Tracker_VUE/",
+                    git:"https://github.com/jonesmax/School_Tracker_VUE",
                     intro: "VueJS",
                     desc: "Personal homepage application used as a landing page for everyday use.",
                     other: "Rest Api calls made to local database, as well as, calls to public and open source api's."
@@ -211,6 +204,7 @@ export default {
                     name: "Store",
                     url: "images/store.png",
                     float: "right",
+                    git:"https://github.com/jonesmax/store",
                     link: "http://maxwelljonesdesign.com/store/",
                     intro: "VueJS",
                     desc: "Ecommerce mock design - UI",
@@ -221,6 +215,8 @@ export default {
                     url: "images/du.jpg",
                     float: "left",
                     intro: "C++",
+                    link: "none",
+                    git:"none",
                     desc: "Console App - Du Linux Command Line",
                     other: "Remake of an Linux command '-du', this was one of the most challenging projects I've done, great example of reccursive methods and high level programming."
                 },
@@ -229,6 +225,8 @@ export default {
                     url: "images/binary.jpg",
                     float: "right",
                     intro: "C",
+                    link: "none",
+                    git:"none",
                     desc: "Console App - Binary to Roman Converter",
                     other: "Transferable Binary to Roman text converter on a single command line, displays skills of knowledge of C."
                 },
@@ -241,9 +239,25 @@ export default {
                 return "background-color: rgb(220, 220, 220)";
             }
         },
-        getLink(person){
-        
-            return person.link;
+        getLink(person,name){
+            if (name == 'git'){
+                if(person.link!='none'){
+                    return person.git;
+                }
+            }
+            if (name == 'link'){
+                if(person.link!='none'){
+                    return person.link;
+                }
+            }
+
+            
+            
+        },
+        checkActive(item){
+            if(item.git=='none'){
+                alert("Code available upon request (school project)")
+            }
         },
         changeActive(full,item){
             for (var key in full) {
