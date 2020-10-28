@@ -379,8 +379,8 @@ button:hover{
     
 }
 @keyframes buttonRise {
-  0%   {opacity:0%; top: -50px; }
-  100% {opacity:100%; top: 0px;}
+  0%   {top: -50px; }
+  100% {top: 0px;}
 }
 @keyframes example {
   0%   {opacity:0%; left:-100px; top:0px;}
