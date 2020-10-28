@@ -10,7 +10,7 @@
 
 <script>
 import home from './components/home.vue'
-
+import 'animate.css'
 export default {
   name: 'App',
   components: {
@@ -27,8 +27,6 @@ html {
   background-size: 100%;
   background-position-y: -60px;
 }
-html {
-  scroll-behavior: smooth;
-}
+
 
 </style>

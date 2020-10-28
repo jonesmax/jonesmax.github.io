@@ -92,7 +92,7 @@
 </template>
 
 <script>
-
+import 'animate.css'
 
 export default {
     data(){
@@ -673,9 +673,7 @@ button{
     font-size: 120%;
     margin-top: 5px;
 }
-#topLevelLi{
-    
-}
+
 @media only screen and (max-width: 1850px) {
     #modalPro img{
         width: 95%;
