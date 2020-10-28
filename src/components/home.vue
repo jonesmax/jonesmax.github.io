@@ -51,7 +51,7 @@
                  <li id="topLevelLi"  v-for="item of topLevel" v-bind:key="item['.key']">
                         <button>{{item.name}}</button>
                 </li>
-                <li id="twoLevelLi"  v-for="item of secondLevel" v-bind:key="item['.key']">
+                  <li id="twoLevelLi"  v-for="item of secondLevel" v-bind:key="item['.key']">
                         <button>{{item.name}}</button>
                 </li>
                 <li id="threeLevelLi"  v-for="item of threeLevel" v-bind:key="item['.key']">
@@ -383,18 +383,18 @@ button:hover{
   100% {top: 0px;}
 }
 @keyframes example {
-  0%   {opacity:0%; left:-100px; top:0px;}
-  100% {opacity:100%; left:0px; top:0px;}
+  0%   {left:-100px; top:0px;}
+  100% { left:0px; top:0px;}
 }
 @keyframes Rise {
-  0%   {opacity:0%; top: -50px; }
-  60%   {opacity:0%; top: -50px; }
-  100% {opacity:100%; top: 0px;}
+  0%   { top: -50px; }
+  60%   { top: -50px; }
+  100% { top: 0px;}
 }
 @keyframes Rise2 {
-  0%   {opacity:0%; top: 50px; }
-  60%   {opacity:0%; top: 50px; }
-  100% {opacity:100%; top: 0px;}
+  0%   { top: 50px; }
+  60%   { top: 50px; }
+  100% { top: 0px;}
 }
 #topBar li{
     animation-name: buttonRise;
@@ -536,8 +536,8 @@ button:hover{
     width: 20%;
     height: 13vh;
     background-color: rgb(125, 255, 108); /* Green */
-    animation-name: Rise;
-    animation-duration: 5s;
+  
+	
     position: relative;
     
 }
@@ -549,9 +549,8 @@ button:hover{
     float: left;
     width: 25%;
     height: 12vh;
-    background-color: rgb(255, 252, 59); /* Green */
-    animation-name: Rise;
-    animation-duration: 4s;
+    background-color: rgba(255, 252, 59); /* Green */
+
     position: relative;
 }
 #threeLevelLi button{
@@ -563,8 +562,7 @@ button:hover{
     width: 20%;
     height: 10vh;
     background-color: rgb(190, 145, 0); /* Green */
-    animation-name: Rise;
-    animation-duration: 3s;
+
     position: relative;
 }
 #fourLevelLi button{
@@ -576,8 +574,7 @@ button:hover{
     width: 33.333%;
     height:9.2vh;
     background-color: rgb(253, 122, 0); /* Green */
-    animation-name: Rise;
-    animation-duration: 2s;
+
     position: relative;
 }
 #fiveLevelLi button{
@@ -590,8 +587,7 @@ button:hover{
     height:8vh;
     
     background-color: rgb(0, 102, 255); /* Green */
-    animation-name: Rise;
-    animation-duration: 1s;
+
     position: relative;
     
 }
